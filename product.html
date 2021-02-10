@@ -1,0 +1,2490 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>site</title>
+        <meta name="description" content="" />
+        <meta name="Keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="files/rating.css">
+        <link href="files/grid.css" type="text/css" rel="stylesheet"/>
+        <link href="files/style.css" type="text/css" rel="stylesheet"/> 
+
+        <link rel="stylesheet" type="text/css" href="files/slick/slick.css">
+        <link rel="stylesheet" type="text/css" href="files/slick/slick-theme.css">    
+        <link rel="stylesheet" type="text/css" href="files/lightbox.css">
+        <link rel="stylesheet" href="files/fonts/font-awesome/css/font-awesome.min.css" />
+        <link href="files/device.css" type="text/css" rel="stylesheet"/>    
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript" src="files/js/script.js"></script>
+        <script src="files/js/rating.js"></script>
+        <script type="text/javascript" src="files/slick/slick.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).on('ready', function() { 
+                doc_w = $(document).width();
+                if(doc_w > 711){
+                    $( function() {
+                        $( "#tabs" ).tabs();
+                    } );
+                }
+                else{
+                    $( function() {
+                        $( "#accordion" ).accordion({
+                            heightStyle: "content",
+                            collapsible: true,
+                            active: false,
+                            icons: {"header": "ui-icon-caret-1-e", "activeHeader": "ui-icon-caret-1-s"}
+                        });
+                    } );
+                }
+
+
+                $('.slider-for').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows:false,
+                    draggable:true,
+                    mobileFirst:true,
+                    adaptiveHeight: true,
+
+                    asNavFor: '.slider-nav',
+                    responsive: [
+                        {
+                            breakpoint: 480,
+                            settings: {
+
+
+                            }
+                        }
+
+                        // You can unslick at a given breakpoint now by adding:
+                        // settings: "unslick"
+                        // instead of a settings object
+                    ]
+                });
+
+                var slider_slick=$('.slider-for');
+
+
+                //                номер текущего слайда
+                slider_slick.on('beforeChange', function(event, slick, currentSlide, nextSlide){
+                    $('.number_clid').html(nextSlide + 1)// индекс текущего слайда
+                });
+
+
+                //кол-во слайдов
+                $('.count_clide ').html( slider_slick.slick("getSlick").slideCount);
+
+
+
+
+
+                $('.slider-nav').slick({
+
+                    prevArrow: '<div class="produckt_photo-button produckt_photo-button-top"><i class="fa fa-sort-asc" aria-hidden="true"></i></div>',
+                    nextArrow: '<div class="produckt_photo-button produckt_photo-button-bottom"><i class="fa fa-sort-desc" aria-hidden="true"></i></div>',
+                    infinite:false,
+                    slidesToShow:4,slidesToScroll:1,
+                    vertical:true,
+                    verticalSwiping:true,
+                    asNavFor:'.slider-for',focusOnSelect:true
+
+
+                });
+
+            });
+        </script>
+        <!--
+<script type="text/javascript" src="files/js/lightbox.js"></script>
+<script>
+
+$(function() {
+$('.slider-for a').lightbox(); 
+});
+</script>
+-->
+    </head>
+    <body> 
+        <svg style="display: none">
+
+            <symbol id="basket" 
+                    viewBox="0 0 488.9 488.9">
+                <path d="M16.1805,15.9822 L3.8195,15.9822 L2.2195,7.9822 L17.7805,7.9822 L16.1805,15.9822 Z M9.9995,2.5442 L12.8645,5.9822 L7.1355,5.9822 L9.9995,2.5442 Z M19.7735,6.3482 C19.5825,6.1162 19.2995,5.9822 18.9995,5.9822 L15.4685,5.9822 L10.7685,0.3422 C10.3875,-0.1138 9.6125,-0.1138 9.2315,0.3422 L4.5315,5.9822 L0.9995,5.9822 C0.7005,5.9822 0.4165,6.1162 0.2265,6.3482 C0.0365,6.5802 -0.0395,6.8842 0.0195,7.1782 L2.0195,17.1782 C2.1135,17.6462 2.5235,17.9822 2.9995,17.9822 L16.9995,17.9822 C17.4765,17.9822 17.8865,17.6462 17.9805,17.1782 L19.9805,7.1782 C20.0385,6.8842 19.9625,6.5802 19.7735,6.3482 L19.7735,6.3482 Z" id="Fill-1" fill="currentColor" mask="url(#mask-2)"></path>
+
+            </symbol>
+            <symbol id="home" viewBox="0 0 488.9 488.9">
+                <g  fill="currentColor">
+                    <polygon  points="14.0004 16.0002 6.0004 16.0002 6.0004 8.8802 3.9994 10.6502 3.9994 18.0002 16.0004 18.0002 16.0004 10.6502 14.0004 8.8802"></polygon>
+                    <polygon  points="9.9999 0 -0.0001 8.842 1.3289 10.338 9.9999 2.676 18.6719 10.338 19.9999 8.842"></polygon>
+                </g>
+            </symbol>
+            <symbol id="catalog" viewBox="0 0 488.9 488.9">
+                <path d="M20,17 L16,17 C14.697,17 13.719,17.17 13,17.39 L13,7.295 C13.296,6.904 14.176,6 16,6 L20,6 L20,17 Z M4,17 L4,6 L8,6 C9.831,6 10.711,6.911 11,7.293 L11,17.39 C10.281,17.17 9.303,17 8,17 L4,17 Z M21,4 L16,4 C14.027,4 12.752,4.758 12,5.447 C11.248,4.758 9.973,4 8,4 L3,4 C2.447,4 2,4.448 2,5 L2,18 C2,18.552 2.447,19 3,19 L8,19 C10.385,19 11.249,19.673 11.307,19.72 C11.496,19.903 11.746,20 12,20 C12.126,20 12.254,19.976 12.375,19.927 C12.486,19.882 12.58,19.815 12.666,19.738 C12.673,19.732 12.683,19.73 12.69,19.723 C12.699,19.716 13.541,19 16,19 L21,19 C21.553,19 22,18.552 22,18 L22,5 C22,4.448 21.553,4 21,4 L21,4 Z"   fill="currentColor"></path>
+            </symbol>
+
+
+
+            <symbol id="love" viewBox="0 0 488.9 488.9">
+                <path d="M16.5,3 C14.76,3 13.09,3.81 12,5.09 C10.91,3.81 9.24,3 7.5,3 C4.42,3 2,5.42 2,8.5 C2,12.28 5.4,15.36 10.55,20.04 L12,21.35 L13.45,20.03 C18.6,15.36 22,12.28 22,8.5 C22,5.42 19.58,3 16.5,3 Z M12.1,18.55 L12,18.65 L11.9,18.55 C7.14,14.24 4,11.39 4,8.5 C4,6.5 5.5,5 7.5,5 C9.04,5 10.54,5.99 11.07,7.36 L12.94,7.36 C13.46,5.99 14.96,5 16.5,5 C18.5,5 20,6.5 20,8.5 C20,11.39 16.86,14.24 12.1,18.55 Z" fill="currentColor"></path>
+            </symbol>
+
+
+            <symbol id="strelki" viewBox="0 0 488.9 488.9">
+                <path d="M9.01,14 L2,14 L2,16 L9.01,16 L9.01,19 L13,15 L9.01,11 L9.01,14 Z M14.99,13 L14.99,10 L22,10 L22,8 L14.99,8 L14.99,5 L11,9 L14.99,13 Z"  fill="currentColor"></path>
+            </symbol>
+
+
+            <symbol id="vhod" viewBox="0 0 488.9 488.9">
+
+                <path d="M12,4 C7.589,4 4,7.589 4,12 C4,16.411 7.589,20 12,20 C16.411,20 20,16.411 20,12 C20,7.589 16.411,4 12,4 M12,22 C6.486,22 2,17.514 2,12 C2,6.486 6.486,2 12,2 C17.514,2 22,6.486 22,12 C22,17.514 17.514,22 12,22" fill="currentColor"></path>
+                <path d="M15,9 C15,7.343 13.657,6 12,6 C10.343,6 9,7.343 9,9 C9,10.657 10.343,12 12,12 C13.657,12 15,10.657 15,9" id="Fill-3"  fill="currentColor"></path>
+                <path d="M12,14 C10.21,14 8.58,14.67 7.34,15.79 C7.77,16.31 8.28,16.76 8.86,17.11 C9.72,16.42 10.81,16 12,16 C13.19,16 14.28,16.42 15.14,17.11 C15.72,16.76 16.23,16.31 16.66,15.79 C15.42,14.67 13.79,14 12,14"  fill="currentColor"></path>
+
+            </symbol>
+
+
+            <symbol id="search" viewBox="0 0 488.9 488.9">
+                <g  fill="currentColor">
+                    <path d="M12.6062932,11.1922932 L18,16.586 L16.586,18 L11.1922932,12.6062932 C10.0236917,13.4815603 8.57238987,14 7,14 C3.13400675,14 0,10.8659932 0,7 C0,3.13400675 3.13400675,0 7,0 C10.8659932,0 14,3.13400675 14,7 C14,8.57238987 13.4815603,10.0236917 12.6062932,11.1922932 L12.6062932,11.1922932 Z M7,12 C9.76142375,12 12,9.76142375 12,7 C12,4.23857625 9.76142375,2 7,2 C4.23857625,2 2,4.23857625 2,7 C2,9.76142375 4.23857625,12 7,12 Z"></path>
+
+                </g>
+            </symbol>
+        </svg>
+        <div id="wrapper"> 
+            <div id="header">
+                <div class="center">
+                    <div class="header_top">
+                        <div class="user_block">
+                            <div class="signe_in">
+                                <a href="#">Войти</a>
+                                <span class="signe_in_vk">
+                                    <i class="fa fa-vk" aria-hidden="true"></i>
+                                </span>
+                                <span class="signe_in_fb">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                </span>
+                            </div> 
+
+                        </div> 
+                        <div class="primary_nav">
+                            <ul>
+                                <li class="active"><a href="">Каталог</a></li>
+                                <li><a href="">Барахолка</a></li>                                                                              
+                                <li class="last"><a  class="last" href="">Разместить объявление</a></li>
+                            </ul>
+                        </div>
+                    </div><!-- header_top -->
+
+
+
+                    <div class="header_midle">
+                        <div class="batton_menu">
+                            <button class="btn_nav btn_nav_htx"><!-- button menu mobile--> 
+                                <span></span>
+                            </button>
+                        </div>
+                        <div class="logo">
+                            <a href=""><span>КУПИТЬ</span></a>
+                        </div>
+                        <div class="store_block">
+                            <div class="search_btn"></div>
+                            <div class="cart_block">
+                                <a class="active" href="">
+                                    <svg class="wrapp_menu_prime_icon" width="488.9px" height="488.9px" viewBox="0 0 489.4 489.4" y="0">
+                                        <use class="wrapp_menu_prime_icon_style" xlink:href="#basket"></use>
+                                    </svg>
+                                    <span>Корзина</span>
+                                </a>
+                            </div>
+                            <div class="sb_like">
+                                <a href="">
+                                    <svg class="wrapp_menu_prime_icon" width="488.9px" height="488.9px" viewBox="0 0 489.4 489.4" y="0">
+                                        <use class="wrapp_menu_prime_icon_style" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#love"></use>
+                                    </svg>  
+                                </a>
+                            </div>
+                        </div>    
+                        <div class="search_block">
+                            <form action="/">
+                                <div class="form-item">                           
+                                    <input type="text" class=" " name="search" value="" placeholder="Поиск по новым и б/у товарам…" />                                
+                                </div>
+                                <div class="form-ection">                                
+                                    <input type="submit" class="submit" value="Поиск" />
+                                </div>
+                            </form>
+                        </div>  
+                    </div><!-- header_midle -->
+                    <!--  primary_nav_device-->
+                    <div class="primary_nav_device product_card_hide">
+                        <ul>
+                            <li class="active"><a href="">Каталог</a></li>
+                            <li><a href="">Барахолка</a></li>                 
+                        </ul>
+                    </div>
+
+
+                </div><!-- center -->   
+            </div><!-- #header -->
+            <nav> 
+                <div class="device_menu">
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $(".device_menu .wrapp_menu ul li").click(function (){
+                                if($(this).hasClass("active")){
+                                    $(this).removeClass("active");
+                                }  
+                                else{
+                                    $(this).addClass("active");
+                                } 
+                            }); 
+                            $(".device_menu .wrapp_menu > ul > li > a").click(function (){
+                                event.preventDefault();    
+                            });                        
+                        });
+                    </script>
+                    <div class="wrapp_menu">   
+                        <div class="wrapp_menu_prime">
+                            <ul>
+                                <li> 
+                                    <svg class="wrapp_menu_prime_icon" width="488.9px" height="488.9px" viewBox="0 0 489.4 489.4" y="0">
+                                        <use class="wrapp_menu_prime_icon_style" xlink:href="#home"/>
+                                    </svg>
+                                    <a href="">Главная</a>
+                                </li>
+
+
+                                <li class="sub_menu_btn">
+                                    <svg class="wrapp_menu_prime_icon" width="488.9px" height="488.9px" viewBox="0 0 489.4 489.4" y="0" >
+                                        <use class="wrapp_menu_prime_icon_style" xlink:href="#catalog"/>
+                                    </svg>
+                                    <a href="javascript:void(0)">Каталог</a>
+
+
+                                    <!--       ------sub_menu-->
+
+                                    <div class="sub_menu">
+                                        <div class="sub_menu_top">
+                                            <img class="sub_menu_prev" src="files/images/ic_keyboard.svg" alt="prev">
+                                            <h4>Каталог</h4>
+                                            <img class="sub_menu_close" src="files/images/ic-close.svg" alt="close">
+                                        </div>
+                                        <ul>
+                                            <li class="sub_menu_sub_btn">
+                                                <a href="javascript:void(0)">Электроника</a>
+
+                                                <!--       ------sub_menu_sub-->
+                                                <div class="sub_menu_sub">
+                                                    <div class="sub_menu_top">
+                                                        <img class="sub_menu_sub_prev" src="files/images/ic_keyboard.svg" alt="prev">
+                                                        <h4>Электроника</h4>
+                                                        <img class="sub_menu_close" src="files/images/ic-close.svg" alt="close">
+                                                    </div>
+                                                    <ul>
+                                                        <li class="sub_menu_sub_sub_btn">
+                                                            <a href="javascript:void(0)">Мобильные телефоны и аксессуары</a>
+
+
+                                                            <!--       ------sub_menu_sub_sub-->
+                                                            <div class="sub_menu_sub_sub">
+                                                                <div class="sub_menu_top">
+                                                                    <img class="sub_menu_sub_sub_prev" src="files/images/ic_keyboard.svg" alt="prev">
+                                                                    <h4>Мобильные телефоны и акс...</h4>
+                                                                    <img class="sub_menu_close" src="files/images/ic-close.svg" alt="close">
+                                                                </div>
+                                                                <ul>
+                                                                    <li>
+                                                                        <img src="files/upload/meny_ico1.jpg" alt="">
+                                                                        <a href="">Мобильные телефоны</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <img src="files/upload/meny_ico2.jpg" alt="">
+                                                                        <a href="">Наушники</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <img src="files/upload/meny_ico3.jpg" alt="">
+                                                                        <a href="">Умные часы и фитнес-брас...</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <img src="files/upload/meny_ico5.jpg" alt="">
+                                                                        <a href="">Карты памяти</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <img src="files/upload/meny_ico6.jpg" alt="">
+                                                                        <a href="">Чехлы для телефонов</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <img src="files/upload/meny_ico7.jpg" alt="">
+                                                                        <a href="">Аккумуляторы</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <img src="files/upload/meny_ico8.jpg" alt="">
+                                                                        <a href="">Bluetooth-гарнитуры</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <img src="files/upload/meny_ico9.jpg" alt="">
+                                                                        <a href="">Палки для селфи</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <img src="files/upload/meny_ico10.jpg" alt="">
+                                                                        <a href="">Кабели, адаптеры</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <img src="files/upload/meny_ico11.jpg" alt="">
+                                                                        <a href="">Автомобильные держатели</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <img src="files/upload/meny_ico12.jpg" alt="">
+                                                                        <a href="">Зарядные устройства</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <!--       ------end sub_menu_sub_sub-->
+                                                        </li>
+
+
+
+                                                        <li class="sub_menu_sub_sub_btn">
+                                                            <a href="javascript:void(0)">Телевидение и видео</a>
+
+
+                                                            <!--       ------sub_menu_sub_sub-->
+                                                            <div class="sub_menu_sub_sub">
+                                                                <div class="sub_menu_top">
+                                                                    <img class="sub_menu_sub_sub_prev" src="files/images/ic_keyboard.svg" alt="prev">
+                                                                    <h4>Телевидение и видео</h4>
+                                                                    <img class="sub_menu_close" src="files/images/ic-close.svg" alt="close">
+                                                                </div>
+                                                                <ul>
+                                                                    <li><a href="">1</a></li>
+                                                                    <li><a href="">2</a></li>
+                                                                    <li><a href="">3</a></li>
+                                                                    <li><a href="">4</a></li>
+                                                                    <li><a href="">5</a></li>
+                                                                    <li><a href="">6</a></li>
+                                                                    <li><a href="">7</a></li>
+                                                                    <li><a href="">8</a></li>
+                                                                    <li><a href="">9</a></li>
+                                                                    <li><a href="">10</a></li>
+                                                                    <li><a href="">11</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <!--       ------end sub_menu_sub_sub-->
+                                                        </li>
+
+
+
+
+                                                        <li><a href="">Планшеты, электронные книги</a></li>
+                                                        <li><a href="">Аудиотехника</a></li>
+                                                        <li><a href="">Фото- и видеотехника</a></li>
+                                                        <li><a href="">Гаджеты</a></li>
+                                                        <li><a href="">Видеоигры</a></li>
+                                                        <li><a href="">Телефония и связь</a></li>
+                                                        <li><a href="">Музыкальное оборудование</a></li>
+                                                        <li><a href="">Оптические приборы</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!--       ------end sub_menu_sub-->
+                                            </li>
+                                            <li class="sub_menu_sub_btn">
+                                                <a href="javascript:void(0)">Компьютеры</a>
+                                                <!--       ------sub_menu_sub-->
+                                                <div class="sub_menu_sub">
+                                                    <div class="sub_menu_top">
+                                                        <img class="sub_menu_sub_prev" src="files/images/ic_keyboard.svg" alt="prev">
+                                                        <h4>Электроника</h4>
+                                                        <img class="sub_menu_close" src="files/images/ic-close.svg" alt="close">
+                                                    </div>
+                                                    <ul>
+                                                        <li><a href="">1</a></li>
+                                                        <li><a href="">2</a></li>
+                                                        <li><a href="">3</a></li>
+                                                        <li><a href="">4</a></li>
+                                                        <li><a href="">5</a></li>
+                                                        <li><a href="">6</a></li>
+                                                        <li><a href="">7</a></li>
+                                                        <li><a href="">8</a></li>
+                                                        <li><a href="">9</a></li>
+                                                        <li><a href="">10</a></li>
+                                                    </ul>
+                                                </div>
+
+
+                                            </li>
+                                            <li><a href="">Бытовая техника</a></li>
+                                            <li><a href="">Детские товары</a></li>
+                                            <li><a href="">Строительство и ремнот</a></li>
+                                            <li><a href="">Одежда и обувь</a></li>
+                                            <li><a href="">Авто</a></li>
+                                            <li><a href="">Недвижимость</a></li>
+                                            <li><a href="">Еще</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <!--                                           ------end sub_menu-->
+
+
+                                </li>
+
+
+                                <li class="sub_menu_btn">
+                                    <svg class="wrapp_menu_prime_icon" width="488.9px" height="488.9px" viewBox="0 0 489.4 489.4" y="0">
+                                        <use class="wrapp_menu_prime_icon_style" xlink:href="#catalog"/>
+                                    </svg>
+                                    <a href="javascript:void(0)">Барахолка</a>
+
+
+
+                                    <div class="sub_menu">
+                                        <div class="sub_menu_top">
+                                            <img class="sub_menu_prev" src="files/images/ic_keyboard.svg" alt="prev">
+                                            <h4>Каталог</h4>
+                                            <img class="sub_menu_close" src="files/images/ic-close.svg" alt="close">
+                                        </div>
+                                        <ul>
+                                            <li class="sub_menu_sub_btn">
+                                                <a href="javascript:void(0)">Электроника</a>
+                                                <div class="sub_menu_sub">
+                                                    <div class="sub_menu_top">
+                                                        <img class="sub_menu_sub_prev" src="files/images/ic_keyboard.svg" alt="prev">
+                                                        <h4>Электроника</h4>
+                                                        <img class="sub_menu_close" src="files/images/ic-close.svg" alt="close">
+                                                    </div>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="">Мобильные телефоны и аксессуары
+
+                                                            </a>
+
+                                                        </li>
+                                                        <li><a href="">Телfvgnhgfvhngvfhевидение и видео</a></li>
+                                                        <li><a href="">Планшеты, электронные книги</a></li>
+                                                        <li><a href="">Аудиотfghfghvgnhvgnехника</a></li>
+                                                        <li><a href="">Фото- и видеотехника</a></li>
+                                                        <li><a href="">Гаджfghfghfvgbnvbnеты</a></li>
+                                                        <li><a href="">Видеоигры</a></li>
+                                                        <li><a href="">Телfgnfnефония и связь</a></li>
+                                                        <li><a href="">Музыкальное оборудование</a></li>
+                                                        <li><a href="">Оптические приборы</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li class="sub_menu_sub_btn">
+                                                <a href="javascript:void(0)">Компьютеры</a>
+
+                                                <div class="sub_menu_sub">
+                                                    <div class="sub_menu_top">
+                                                        <img class="sub_menu_sub_prev" src="files/images/ic_keyboard.svg" alt="prev">
+                                                        <h4>Электроника</h4>
+                                                        <img class="sub_menu_close" src="files/images/ic-close.svg" alt="close">
+                                                    </div>
+                                                    <ul>
+                                                        <li>
+                                                            <a href="">Мобильные телефоны и аксессуары
+
+                                                            </a>
+
+                                                        </li>
+                                                        <li><a href="">Телевидение и видео</a></li>
+                                                        <li><a href="">Планшеты, электронные книги</a></li>
+                                                        <li><a href="">Аудиотvgnhvgnехника</a></li>
+                                                        <li><a href="">Фото- и видеотехника</a></li>
+                                                        <li><a href="">Гаджvgbnvbnеты</a></li>
+                                                        <li><a href="">Видеоигры</a></li>
+                                                        <li><a href="">Телефония и связь</a></li>
+                                                        <li><a href="">Музыкальное оборудование</a></li>
+                                                        <li><a href="">Оптические приборы</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <li><a href="">Бfgthfghника</a></li>
+                                            <li><a href="">Детсfghfghкfghfhие товары</a></li>
+                                            <li><a href="">Строительство и ремнот</a></li>
+                                            <li><a href="">Одеfghfhждfghа и обувь</a></li>
+                                            <li><a href="">Авто</a></li>
+                                            <li><a href="">Недfghfghfвижимость</a></li>
+                                            <li><a href="">Ещfghfghе</a></li>
+                                        </ul>
+                                    </div>
+                                    <!--       ------end sub_menu-->
+                                </li>
+
+
+
+
+
+
+
+                                <li>
+                                    <svg class="wrapp_menu_prime_icon" width="488.9px" height="488.9px" viewBox="0 0 489.4 489.4" y="0">
+                                        <use class="wrapp_menu_prime_icon_style" xlink:href="#search"/>
+                                    </svg>
+                                    <a href="">Поиск</a>
+                                </li>
+                                <li class="active">
+                                    <svg class="wrapp_menu_prime_icon" width="488.9px" height="488.9px" viewBox="0 0 489.4 489.4" y="0">
+                                        <use class="wrapp_menu_prime_icon_style" xlink:href="#love"/>
+                                    </svg>
+                                    <a href="">Отложенные</a> 
+                                    <span>12</span>
+                                </li>
+                                <li>
+                                    <svg class="wrapp_menu_prime_icon" width="488.9px" height="488.9px" viewBox="0 0 489.4 489.4" y="0">
+                                        <use class="wrapp_menu_prime_icon_style" xlink:href="#strelki"/>
+                                    </svg>
+                                    <a href="">Сравнение товаров</a>
+                                    <span>2</span>
+                                </li>
+                                <li>
+                                    <svg  class="wrapp_menu_prime_icon" width="488.9px" height="488.9px" viewBox="0 0 489.4 489.4" y="0">
+                                        <use class="wrapp_menu_prime_icon_style" xlink:href="#basket"/>
+                                    </svg>
+                                    <a href="">Корзина</a>
+                                    <span>1</span>
+                                </li>
+                                <li>
+                                    <svg class="wrapp_menu_prime_icon" width="488.9px" height="488.9px" viewBox="0 0 489.4 489.4" y="0">
+                                        <use class="wrapp_menu_prime_icon_style" xlink:href="#vhod"/>
+                                    </svg>
+                                    <a class="user_entry" href="javascript:void(0)">Войти</a>
+                                </li>
+                            </ul>
+                        </div>      
+
+                        <div class="wrapp_menu_nonprime">
+                            <ul>
+                                <li>
+                                    <a href="">О компании</a>
+                                </li>
+                                <li>
+                                    <a href="">Вакансии</a>
+                                </li>
+                                <li>
+                                    <a href="">Контакты</a>
+                                </li>
+                                <li>
+                                    <a href="">Реклама</a>
+                                </li>
+                                <li>
+                                    <a href="">Размещение в каталоге</a>
+                                </li>
+                                <li>
+                                    <a href="">Правила</a>
+                                </li>
+                                <li>
+                                    <a href="">Публичный договор</a>
+                                </li>
+                                <li>
+                                    <a href="">Поддержка пользователей</a>
+                                </li>
+                            </ul>
+                        </div>             
+                    </div><!-- center -->
+                </div>
+                <div class="center">                   
+                    <div class="main_menu">
+                        <ul>
+                            <li class="first">
+                                <a href="">Каталог 
+                                </a>
+                                <div class="first_select">
+                                    <ul>
+                                        <li>Каталог</li>
+                                        <li>Барахолка</li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class=""><a href="">Электроника</a>
+                                <div class="sub_menu" >
+                                    <ul>
+                                        <li>
+                                            <a class="mid-link" href="#_"><span class="name">Мобильные телефоны и аксессуары</span></a>
+                                            <div class="sub_sub_main">
+                                                <div class="center">                                                
+                                                    <ul>
+                                                        <li><a href="#">
+                                                            <span class="img"><img src="files/upload/meny_ico1.jpg" alt="" />
+                                                            </span><span class="name">Мобильные телефоны<span class="size">2,234 новых товаров</span></span>
+                                                            </a></li>
+                                                        <li><a href="#">
+                                                            <span class="img"><img src="files/upload/meny_ico2.jpg" alt="" />
+                                                            </span><span class="name">Наушники<span class="size">2,234 новых товаров</span></span>
+                                                            </a></li>
+                                                        <li><a href="#">
+                                                            <span class="img"><img src="files/upload/meny_ico3.jpg" alt="" />
+                                                            </span><span class="name">Умные часы и фитнес-браслеты<span class="size">2,234 новых товаров</span></span>
+                                                            </a></li>
+                                                        <li><a href="#">
+                                                            <span class="img"><img src="files/upload/meny_ico4.jpg" alt="" />
+                                                            </span><span class="name">Портативные зарядные устройства<span class="size">2,234 новых товаров</span></span>
+                                                            </a></li>
+                                                        <li><a href="#">
+                                                            <span class="img"><img src="files/upload/meny_ico5.jpg" alt="" />
+                                                            </span><span class="name">Карты памяти<span class="size">2,234 новых товаров</span></span>
+                                                            </a></li>
+                                                        <li><a href="#">
+                                                            <span class="img"><img src="files/upload/meny_ico6.jpg" alt="" />
+                                                            </span><span class="name">Чехлы для телефонов<span class="size">2,234 новых товаров</span></span>
+                                                            </a></li>
+                                                        <li><a href="#">
+                                                            <span class="img"><img src="files/upload/meny_ico7.jpg" alt="" />
+                                                            </span><span class="name">Аккумуляторы<span class="size">2,234 новых товаров</span></span>
+                                                            </a></li>
+                                                        <li><a href="#">
+                                                            <span class="img"><img src="files/upload/meny_ico8.jpg" alt="" />
+                                                            </span><span class="name">Bluetooth-гарнитуры<span class="size">2,234 новых товаров</span></span>
+                                                            </a></li>
+                                                        <li><a href="#">
+                                                            <span class="img"><img src="files/upload/meny_ico9.jpg" alt="" />
+                                                            </span><span class="name">Палки для селфи<span class="size">2,234 новых товаров</span></span>
+                                                            </a></li>
+                                                        <li><a href="#">
+                                                            <span class="img"><img src="files/upload/meny_ico10.jpg" alt="" />
+                                                            </span><span class="name">Кабели, адаптеры<span class="size">2,234 новых товаров</span></span>
+                                                            </a></li>
+                                                        <li><a href="#">
+                                                            <span class="img"><img src="files/upload/meny_ico11.jpg" alt="" />
+                                                            </span><span class="name">Автомобильные держатели<span class="size">2,234 новых товаров</span></span>
+                                                            </a></li>
+                                                        <li><a href="#">
+                                                            <span class="img"><img src="files/upload/meny_ico12.jpg" alt="" />
+                                                            </span><span class="name">Зарядные устройства<span class="size">2,234 новых товаров</span></span>
+                                                            </a></li>
+                                                    </ul>                                                
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li><a class="mid-link" href="#_"><span class="name">Телевидение и видео</span></a></li>
+                                        <li><a class="mid-link" href="#_"><span class="name">Планшеты, электронные книги</span></a></li>
+                                        <li><a class="mid-link" href="#_"><span class="name">Аудиотехника</span></a></li>
+                                        <li><a class="mid-link" href="#_"><span class="name">Фото- и видеотехника</span></a></li>
+                                        <li><a class="mid-link" href="#_"><span class="name">Гаджеты</span></a></li>
+                                        <li><a class="mid-link" href="#_"><span class="name">Видеоигры</span></a></li>
+                                        <li><a class="mid-link" href="#_"><span class="name">Телефония и связь</span></a></li>
+                                        <li><a class="mid-link" href="#_"><span class="name">Музыкальное оборудование</span></a></li>
+                                        <li><a class="mid-link" href="#_"><span class="name">Оптические приборы</span></a></li>
+                                    </ul> 
+                                    <div class="nav_advertesting">
+                                        <div class="a_wrapp">
+                                            <div class="primary_products">
+                                                <div class="items"> 
+                                                    <div class="coll33">                                               
+                                                        <div class="item item_type2">
+                                                            <div class="background" style="background: #f5f5f5;"></div>
+                                                            <a href="">
+                                                                <span class="goods_name">Пора менять резину!</span>
+                                                                <span class="goods_price">от 60р.</span>
+                                                                <span class="goods_img"><img src="files/upload/shini.png" alt="" /></span>
+                                                            </a>    
+                                                        </div>
+                                                    </div>
+                                                    <div class="coll33">   
+                                                        <div class="item item_type3">
+                                                            <div class="background" style="background-image: linear-gradient(236deg, #ff873c, #ff523c);}"></div>
+                                                            <a href="">
+                                                                <span class="goods_name" style="color: #fff;">iPhone 7</span>                                
+                                                                <span class="goods_img"><img src="files/upload/iphone.png" alt="" /></span>
+                                                            </a>    
+                                                        </div>
+                                                        <div class="item item_type3">
+                                                            <div class="background" style="background: #baffe9;"></div>
+                                                            <a href="">
+                                                                <span class="goods_name" style="font-family: Exo2SemiBold;">Мебель</span>                                
+                                                                <span class="goods_img"><img src="files/upload/mebel.png" alt="" /></span>
+                                                            </a>    
+                                                        </div>
+                                                    </div>
+                                                    <div class="coll33">   
+                                                        <div class="item item_type4">
+                                                            <div class="background" style=""></div>
+                                                            <a href="">                                
+                                                                <span class="goods_img"><img src="files/upload/snowbord.png" alt="" /></span>
+                                                            </a>    
+                                                        </div>   
+                                                    </div>                                                
+                                                </div>
+                                            </div>    
+                                        </div>
+                                    </div> 
+                                </div>
+                            </li>
+                            <li class=""><a href="">Компьютеры</a></li>
+                            <li><a href="">Бытовая техника</a></li>
+                            <li><a href="">Детские товары</a></li>
+                            <li><a href="">Строительство и ремонт</a></li>
+                            <li><a href="">Одежда и обувь</a></li>
+                            <li><a href="">Авто</a></li>
+                            <li><a href="">Недвижимость</a></li>                                                                               
+                            <li class="last"><a href="">Еще</a></li>
+                        </ul>
+                    </div>
+                </div><!-- center -->                    
+            </nav>
+            <div id="conteiner" class="product-page">
+                <div class="center">
+                    <div class="breadcrumbs product_card_hide">
+                        <a href="">Мобильные телефоны</a>
+                        <span><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                        <span>Apple</span>
+                    </div>
+                    <h1>Apple iPhone 7 32GB Black</h1>
+                    <div class="content_product">
+                        <div class="page_product_image left">
+                            <div class="slider-nav">
+                                <div class="item">
+                                    <span><img src="files/upload/smal_photo1.png" alt="" /></span> 
+                                </div>
+                                <div class="item">
+                                    <span><img src="files/upload/smal_photo2.png" alt="" /></span>  
+                                </div>
+                                <div class="item">
+                                    <span><img src="files/upload/smal_photo1.png" alt="" /> </span> 
+                                </div>
+                                <div class="item">
+                                    <span><img src="files/upload/smal_photo2.png" alt="" /> </span> 
+                                </div><div class="item">
+                                <span><img src="files/upload/smal_photo1.png" alt="" /> </span> 
+                                </div>
+                                <div class="item">
+                                    <span><img src="files/upload/smal_photo2.png" alt="" /> </span> 
+                                </div>
+                            </div>  <!-- slider-nav -->
+                            <div class="slider-for">
+                                <div class="item">
+                                    <a href="files/upload/big_photo1.png"><img src="files/upload/big_photo1.png" alt="" />  </a> 
+                                </div>
+                                <div class="item">
+                                    <a href="files/upload/smal_photo2.png"><img src="files/upload/smal_photo2.png" alt="" />  </a>  
+                                </div>
+                                <div class="item">
+                                    <a href="files/upload/big_photo1.png"><img src="files/upload/big_photo1.png" alt="" />  </a> 
+                                </div>
+                                <div class="item">
+                                    <a href="files/upload/smal_photo2.png"><img src="files/upload/smal_photo2.png" alt="" />  </a>  
+                                </div>
+                                <div class="item">
+                                    <a href="files/upload/big_photo1.png"><img src="files/upload/big_photo1.png" alt="" />  </a> 
+                                </div>
+                                <div class="item">
+                                    <a href="files/upload/smal_photo2.png"><img src="files/upload/smal_photo2.png" alt="" />  </a>  
+                                </div>
+                            </div>    <!-- slider-for -->
+
+                            <!--   count slide-->
+                            <div class="count_of_slides">
+                                <span class="number_clid">1</span><span>/</span><span class="count_clide"></span>
+                            </div>
+
+                            <!--product_actions_device-->
+                            <div class="product_actions product_actions_device">
+                                <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></div>
+                                <div class="product_actions_compare"><a href="">&nbsp;</a></div>
+                            </div>
+
+
+                        </div> <!-- page_product_image -->
+                        <div class="primary_content">
+
+                            <div class="product_actions">
+                                <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                            </div>
+                            <div class="top">                           
+                                <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>                            
+                                <div class="product_review"><a href="#">15 отзывов</a></div>
+                            </div>
+                            <div class="product_text">
+                                <p>Apple iOS, экран 4.7” IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>
+                            </div>
+                            <div class="product_price"><strong>от 1700,00 p.</strong></div>
+                            <div class="product_big_batton"><a href="#">22 предложения новых товаров</a></div>
+                            <div class="product_price_add">от 1600р.</div>
+                            <div class="product_minwrapp">
+                                <div class="more_ofers">
+                                    <a href="#">2 б/у объявления</a>
+                                </div>
+                                <div class="add_ofer">
+                                    <a href="#">Разместить объявление</a>
+                                </div> 
+                            </div>
+                            <div class="page_products_more">                                                      
+                                <p><span>Еще 13 вариантов этого товара</span> </p> 
+                                <!--                                <i class="fa fa-angle-down" aria-hidden="true"></i>-->
+                            </div>
+                        </div><!--primary_content -->
+                        <div class="best_offers">
+                            <p><strong>Лучшие предложения</strong></p>
+                            <div class="items">
+                                <div class="item">
+                                    <div class="right">
+                                        <a href="#" class="in_cart">В корзину</a>
+                                        <div>
+                                            <a href="javascript:void(0);" class="in_contact">Контакты</a>  
+                                            <div class="product_contacts">
+                                                <ul>
+                                                    <li>+375 33 630-55-66</li>
+                                                    <li>+375 33 630-55-66</li>
+                                                    <li>+375 29 663-66-88</li>
+                                                </ul>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <div class="left">
+                                        <h4><a href="#">GSMARENA.BY</a></h4>
+                                        <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                        <div class="price"><strong>1700,00 p.</strong></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div><!-- item -->
+                                <div class="item">
+                                    <div class="right">
+                                        <a href="#" class="in_cart">В корзину</a>
+                                        <div>
+                                            <a href="javascript:void(0);" class="in_contact">Контакты</a>  
+                                            <div class="product_contacts">
+                                                <ul>
+                                                    <li>+375 33 630-55-66</li>
+                                                    <li>+375 33 630-55-66</li>
+                                                    <li>+375 29 663-66-88</li>
+                                                </ul>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <div class="left">
+                                        <h4><a href="#">GSMARENA.BY</a></h4>
+                                        <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                        <div class="price"><strong>1700,00 p.</strong></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div><!-- item -->
+                                <div class="item">
+                                    <div class="right">
+                                        <a href="#" class="in_cart">В корзину</a>
+                                        <div>
+                                            <a href="javascript:void(0);" class="in_contact">Контакты</a>  
+                                            <div class="product_contacts">
+                                                <ul>
+                                                    <li>+375 33 630-55-66</li>
+                                                    <li>+375 33 630-55-66</li>
+                                                    <li>+375 29 663-66-88</li>
+                                                </ul>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <div class="left">
+                                        <h4><a href="#">GSMARENA.BY</a></h4>
+                                        <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                        <div class="price"><strong>1700,00 p.</strong></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div><!-- item -->
+                                <div class="item">
+                                    <div class="right">
+                                        <a href="#" class="in_cart">В корзину</a>
+                                        <div>
+                                            <a href="javascript:void(0);" class="in_contact">Контакты</a>  
+                                            <div class="product_contacts">
+                                                <ul>
+                                                    <li>+375 33 630-55-66</li>
+                                                    <li>+375 33 630-55-66</li>
+                                                    <li>+375 29 663-66-88</li>
+                                                </ul>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <div class="left">
+                                        <h4><a href="#">GSMARENA.BY</a></h4>
+                                        <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                        <div class="price"><strong>1700,00 p.</strong></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div><!-- item -->
+                                <div class="item">
+                                    <div class="right">
+                                        <a href="#" class="in_cart">В корзину</a>
+                                        <div>
+                                            <a href="javascript:void(0);" class="in_contact">Контакты</a>  
+                                            <div class="product_contacts">
+                                                <ul>
+                                                    <li>+375 33 630-55-66</li>
+                                                    <li>+375 33 630-55-66</li>
+                                                    <li>+375 29 663-66-88</li>
+                                                </ul>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <div class="left">
+                                        <h4><a href="#">GSMARENA.BY</a></h4>
+                                        <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                        <div class="price"><strong>1700,00 p.</strong></div>
+                                    </div>
+                                    <div class="clear"></div>
+                                </div><!-- item -->
+                                <div class="clear"></div>
+                            </div><!-- items -->
+                            <a class="more_best_offers">Еще 17 предложений</a> 
+                        </div><!-- best_offers -->
+                    </div> <!-- content_product -->                              
+                    <!---------------------------------------------------------------------->
+                    <div class="product_tabs">
+                        <div id="tabs">
+                            <ul>
+                                <li><a href="#tabs-1">Характеристики</a></li>
+                                <li><a href="#tabs-2">Предложения <span>(39)</span></a></li>
+                                <li><a href="#tabs-3">Карта</a></li>
+                                <li><a href="#tabs-4">Отзывы <span>(45)</span></a></li>
+                                <li><a href="#tabs-5">Обзоры <span>(17)</span></a></li>
+                                <li><a href="#tabs-6">Обсуждение <span>(135)</span></a></li>
+                                <li><a href="#tabs-7">Б/У объявление <span>(2)</span></a></li>                   
+                            </ul>
+                            <div  id="accordion">
+                                <h3>Характеристики</h3>
+                                <div class="item_tab"  id="tabs-1">
+                                    <div class="table">
+                                        <div class="table_block">
+                                            <h3>Основные</h3>
+                                            <div class="item">
+                                                <p class="left"><span>Тип</span></p>
+                                                <p class="right">смартфон</p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Операционная система</span></p>
+                                                <p class="right">Apple iOS</p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Версия операционной системы </span></p>
+                                                <p class="right">iOS 10</p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Размер экрана </span></p>
+                                                <p class="right">4.7”</p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Разрешение экрана </span></p>
+                                                <p class="right">750x1334</p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Оперативная память</span></p>
+                                                <p class="right">2 ГБ</p>
+                                            </div>   
+                                            <div class="item">
+                                                <p class="left"><span>Флэш-память </span></p>
+                                                <p class="right">32 ГБ</p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Поддержка нескольких SIM-карт </span></p>
+                                                <p class="right"><img src="files/images/ico_no.png" alt="" /></p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Встроенная камера</span></p>
+                                                <p class="right"><img src="files/images/ico_yes.png" alt="" /></p>
+                                            </div> 
+                                            <div class="item">
+                                                <p class="left"><span>Количество точек матрицы</span></p>
+                                                <p class="right">12 Мп  (f/1.8)</p>
+                                            </div>   
+                                        </div><!-- table_block --> 
+                                        <div class="table_block">
+                                            <h3>Процессор</h3>
+                                            <div class="item">
+                                                <p class="left"><span>Процессор</span></p>
+                                                <p class="right">A10 Fusion</p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Количество ядер</span></p>
+                                                <p class="right">4</p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Разрядность процессора</span></p>
+                                                <p class="right">64 бита  </p>        
+                                            </div>                                    
+                                        </div><!-- table_block --> 
+                                        <div class="table_block">
+                                            <h3>Экран</h3>
+                                            <div class="item">
+                                                <p class="left"><span>Технология экрана </span></p>
+                                                <p class="right">IPS</p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Количество цветов экрана </span></p>
+                                                <p class="right">16 млн</p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Разрешающая способность экрана</span></p>
+                                                <p class="right">326 ppi</p>
+                                            </div> 
+                                            <div class="item">
+                                                <p class="left"><span>Сенсорный экран</span></p>
+                                                <p class="right"><img src="files/images/ico_yes.png" alt="" /> емкостный, мультитач</p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Регистрация силы нажатий</span></p>
+                                                <p class="right"><img src="files/images/ico_yes.png" alt="" /></p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Защита от царапин</span></p>
+                                                <p class="right"><img src="files/images/ico_yes.png" alt="" /></p>
+                                            </div>                                   
+                                        </div><!-- table_block --> 
+                                        <div class="table_block">
+                                            <h3>Размеры и вес</h3>
+                                            <div class="item">
+                                                <p class="left"><span>Длина</span></p>
+                                                <p class="right">138.3 мм</p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Ширина</span></p>
+                                                <p class="right">67.1 мм </p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Толщина</span></p>
+                                                <p class="right">7.1 мм </p>
+                                            </div>
+                                            <div class="item">
+                                                <p class="left"><span>Вес</span></p>
+                                                <p class="right">138 г </p>
+                                            </div>        
+                                        </div><!-- table_block --> 
+                                    </div>   <!-- table --> 
+                                    <div class="page_product_bottom">
+                                        <div class="product_big_batton"><a href="#">22 предложения новых товаров</a></div>
+                                        <div class="product_actions">
+                                            <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                            <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                        </div>
+                                    </div>
+
+                                </div><!-- item_tab #tabs-1  -->
+
+
+                                <h3>Предложения <span>(39)</span></h3>                                                     
+                                <div class="item_tab" id="tabs-2">
+                                    <div class="cols_wrapp">
+                                        <div class="sidebar left coll_25">
+                                            <div class="filter">
+                                                <div class="filter_item">
+                                                    <div class="filter_item_title"><strong>Цена, б.р.</strong></div>
+                                                    <div class="filter_item_content">
+                                                        <div class="filter_price field_filter">
+                                                            <input type="text" class="field_from" placeholder="От" />
+                                                            <input type="text" class="field_to" placeholder="До" />
+                                                        </div>
+                                                    </div>
+                                                </div><!-- filter_item -->
+                                                <div class="filter_item ">
+                                                    <div class="filter_item_title"><strong>Гарантия производителя</strong></div>
+                                                    <div class="filter_item_content">
+                                                        <div class="filter_manufacturer_garancy chekbox_filter">
+                                                            <div class="items_wrapp">
+                                                                <div class="item">
+                                                                    <label class="checkbox_btn">
+                                                                        <input type="checkbox">
+                                                                        <span class="checkbox_text">Да</span>
+                                                                    </label>
+                                                                </div>                                                        
+                                                            </div>
+                                                        </div>                                                
+                                                    </div>
+                                                </div><!-- filter_item -->
+                                                <div class="filter_item ">
+                                                    <div class="filter_item_title"><strong>Рейтинг магазина</strong></div>
+                                                    <div class="filter_item_content">
+                                                        <div class="filter_store_rating radio_filter">
+                                                            <div class="items_wrapp">
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="rating" type="radio">
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">От
+                                                                            <div style="margin: 3px 0 0 7px;" class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div></span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="rating" type="radio">
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">От
+                                                                            <div style="margin: 3px 0 0 7px;" class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div></span>
+                                                                    </label>
+
+                                                                </div>
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="rating" type="radio">
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">От
+                                                                            <div style="margin: 3px 0 0 7px;" class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div></span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="rating" type="radio">
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">От
+                                                                            <div style="margin: 3px 0 0 7px;" class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div></span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="rating" type="radio">
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">От
+                                                                            <div style="margin: 3px 0 0 7px;" class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div></span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="rating" type="radio" checked>
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">   
+                                                                            Любой
+                                                                        </span>
+                                                                    </label>
+                                                                </div>                                                                                                        
+                                                            </div>
+                                                        </div>                                                
+                                                    </div>
+                                                </div><!-- filter_item -->
+                                                <div class="filter_item ">
+                                                    <div class="filter_item_title"><strong>Бесплатная доставка курьером</strong></div>
+                                                    <div class="filter_item_content">
+                                                        <div class="filter_free_delivery chekbox_filter">
+                                                            <div class="items_wrapp">
+                                                                <div class="item">
+                                                                    <label class="checkbox_btn">
+                                                                        <input type="checkbox">
+                                                                        <span class="checkbox_text">Да</span>
+                                                                    </label>
+                                                                </div>                                                        
+                                                            </div>
+                                                        </div>                                                
+                                                    </div>
+                                                </div><!-- filter_item -->
+                                                <div class="filter_item ">
+                                                    <div class="filter_item_title"><strong>Способ доставки</strong></div>
+                                                    <div class="filter_item_content">
+                                                        <div class="filter_type_delivery radio_filter">
+                                                            <div class="items_wrapp">
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="delivery_method" type="radio">
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">   
+                                                                            С доставкой
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="delivery_method" type="radio">
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">   
+                                                                            Самовызов 
+                                                                        </span>
+                                                                    </label>
+                                                                </div>         
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="delivery_method" type="radio" checked>
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">   
+                                                                            Любой
+                                                                        </span>
+                                                                    </label>
+                                                                </div>                                                                                                        
+                                                            </div>
+                                                        </div>                                                
+                                                    </div>
+                                                </div><!-- filter_item -->
+                                                <div class="filter_item ">
+                                                    <div class="filter_item_title"><strong>Срок доставки</strong></div>
+                                                    <div class="filter_item_content">
+                                                        <div class="filter_time_delivery radio_filter">
+                                                            <div class="items_wrapp">
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="time_delivery" type="radio">
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">   
+                                                                            Сегодня
+                                                                        </span>
+                                                                    </label>
+                                                                </div>
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="time_delivery" type="radio">
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">   
+                                                                            Завтра
+                                                                        </span>
+                                                                    </label>
+                                                                </div> 
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="time_delivery" type="radio">
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">   
+                                                                            До 5 дней
+                                                                        </span>
+                                                                    </label>
+                                                                </div>         
+                                                                <div class="item">
+                                                                    <label class="radio_btn_trader add_radio">
+                                                                        <input name="time_delivery" type="radio" checked>
+                                                                        <span style="margin-left: 10px" class="radio_trader_text  add_radio">   
+                                                                            Любой
+                                                                        </span>
+                                                                    </label>
+                                                                </div>                                                      
+                                                            </div>
+                                                        </div>                                                
+                                                    </div>
+                                                </div><!-- filter_item -->
+                                            </div><!-- filter -->
+                                        </div><!-- sidebar left col_25 -->
+                                        <div class="right coll_75">
+                                            <div class="tab_item_sort">
+                                                <div class="catalog_sort">
+                                                    <p>Сортировать <span>по популярности</span> <i class="fa fa-caret-down" aria-hidden="true"></i></p> 
+                                                    <div class="selector_sort">
+                                                        <ul>
+                                                            <li><p><span>от дешовых к дорогим</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                            <li><p><span>от дорогих к дишовым</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                            <li><p><span>новинки</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                            <li class="active"><p><span>по популярности</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                            <li><p><span>аукционные</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                            <li><p><span>по рейтингу</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="all_offers">
+                                                <div class="item">
+                                                    <div class="colum colum_1 left">
+                                                        <div class="top">
+                                                            <h4>ActiveGroup</h4>
+                                                            <div class="product_rating"><div class="product_rating_in" style="width: 40%;"></div></div>
+                                                            <div class="product_actions_review"><a href="">15 отзывов</a></div>
+                                                        </div>
+                                                        <div class="teaser"><p>Гарантия 12 месяцев. Срок службы 36 месяцев. В комплекте: фирменный переходник, наушники, дата-кабель, кубик-зарядка. Поможем обрезать SIM-карту !</p></div>
+                                                        <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>    
+                                                    </div>
+                                                    <div class="colum colum_2 left">
+                                                        <div class="delivery">Бесплатно, завтра<br />Самовывоз</div>
+                                                        <div class="time">Сегодня работает с 9:00 до 21:00</div>
+                                                    </div>
+                                                    <div class="colum colum_3 right">
+                                                        <strong>1700,00 p.</strong>
+                                                        <a href="#" class="in_cart">В корзину</a>
+                                                        <div>
+                                                            <a href="javascript:void(0);" class="in_contact">Контакты</a>  
+                                                            <div class="product_contacts">
+                                                                <ul>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 29 663-66-88</li>
+                                                                </ul>
+                                                            </div> 
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div> <!-- item  -->
+
+                                                <div class="item">
+                                                    <div class="colum colum_1 left">
+                                                        <div class="top">
+                                                            <h4>ActiveGroup</h4>
+                                                            <div class="product_rating"><div class="product_rating_in" style="width: 40%;"></div></div>
+                                                            <div class="product_actions_review"><a href="">15 отзывов</a></div>
+                                                        </div>
+                                                        <div class="teaser"><p>Гарантия 12 месяцев. Срок службы 36 месяцев. В комплекте: фирменный переходник, наушники, дата-кабель, кубик-зарядка. Поможем обрезать SIM-карту !</p></div>
+                                                        <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>    
+                                                    </div>
+                                                    <div class="colum colum_2 left">
+                                                        <div class="delivery">Бесплатно, завтра<br />Самовывоз</div>
+                                                        <div class="time">Сегодня работает с 9:00 до 21:00</div>
+                                                    </div>
+                                                    <div class="colum colum_3 right">
+                                                        <strong>1700,00 p.</strong>
+                                                        <a href="#" class="in_cart">В корзину</a>
+                                                        <div>
+                                                            <a href="javascript:void(0);" class="in_contact">Контакты</a>  
+                                                            <div class="product_contacts">
+                                                                <ul>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 29 663-66-88</li>
+                                                                </ul>
+                                                            </div> 
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div> <!-- item  -->
+
+
+
+                                                <div class="item">
+                                                    <div class="colum colum_1 left">
+                                                        <div class="top">
+                                                            <h4>ActiveGroup</h4>
+                                                            <div class="product_rating"><div class="product_rating_in" style="width: 40%;"></div></div>
+                                                            <div class="product_actions_review"><a href="">15 отзывов</a></div>
+                                                        </div>
+                                                        <div class="teaser"><p>Гарантия 12 месяцев. Срок службы 36 месяцев. В комплекте: фирменный переходник, наушники, дата-кабель, кубик-зарядка. Поможем обрезать SIM-карту !</p></div>
+                                                        <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>    
+                                                    </div>
+                                                    <div class="colum colum_2 left">
+                                                        <div class="delivery">Бесплатно, завтра<br />Самовывоз</div>
+                                                        <div class="time">Сегодня работает с 9:00 до 21:00</div>
+                                                    </div>
+                                                    <div class="colum colum_3 right">
+                                                        <strong>1700,00 p.</strong>
+                                                        <a href="#" class="in_cart">В корзину</a>
+                                                        <div>
+                                                            <a href="javascript:void(0);" class="in_contact">Контакты</a>  
+                                                            <div class="product_contacts">
+                                                                <ul>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 29 663-66-88</li>
+                                                                </ul>
+                                                            </div> 
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div> <!-- item  -->
+
+
+
+                                                <div class="item">
+                                                    <div class="colum colum_1 left">
+                                                        <div class="top">
+                                                            <h4>ActiveGroup</h4>
+                                                            <div class="product_rating"><div class="product_rating_in" style="width: 40%;"></div></div>
+                                                            <div class="product_actions_review"><a href="">15 отзывов</a></div>
+                                                        </div>
+                                                        <div class="teaser"><p>Гарантия 12 месяцев. Срок службы 36 месяцев. В комплекте: фирменный переходник, наушники, дата-кабель, кубик-зарядка. Поможем обрезать SIM-карту !</p></div>
+                                                        <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>    
+                                                    </div>
+                                                    <div class="colum colum_2 left">
+                                                        <div class="delivery">Бесплатно, завтра<br />Самовывоз</div>
+                                                        <div class="time">Сегодня работает с 9:00 до 21:00</div>
+                                                    </div>
+                                                    <div class="colum colum_3 right">
+                                                        <strong>1700,00 p.</strong>
+                                                        <a href="#" class="in_cart">В корзину</a>
+                                                        <div>
+                                                            <a href="javascript:void(0);" class="in_contact">Контакты</a>  
+                                                            <div class="product_contacts">
+                                                                <ul>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 29 663-66-88</li>
+                                                                </ul>
+                                                            </div> 
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div> <!-- item  -->
+
+
+
+                                                <div class="item">
+                                                    <div class="colum colum_1 left">
+                                                        <div class="top">
+                                                            <h4>ActiveGroup</h4>
+                                                            <div class="product_rating"><div class="product_rating_in" style="width: 40%;"></div></div>
+                                                            <div class="product_actions_review"><a href="">15 отзывов</a></div>
+                                                        </div>
+                                                        <div class="teaser"><p>Гарантия 12 месяцев. Срок службы 36 месяцев. В комплекте: фирменный переходник, наушники, дата-кабель, кубик-зарядка. Поможем обрезать SIM-карту !</p></div>
+                                                        <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>    
+                                                    </div>
+                                                    <div class="colum colum_2 left">
+                                                        <div class="delivery">Бесплатно, завтра<br />Самовывоз</div>
+                                                        <div class="time">Сегодня работает с 9:00 до 21:00</div>
+                                                    </div>
+                                                    <div class="colum colum_3 right">
+                                                        <strong>1700,00 p.</strong>
+                                                        <a href="#" class="in_cart">В корзину</a>
+                                                        <div>
+                                                            <a href="javascript:void(0);" class="in_contact">Контакты</a>  
+                                                            <div class="product_contacts">
+                                                                <ul>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 29 663-66-88</li>
+                                                                </ul>
+                                                            </div> 
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div> <!-- item  -->
+
+
+
+                                                <div class="item">
+                                                    <div class="colum colum_1 left">
+                                                        <div class="top">
+                                                            <h4>ActiveGroup</h4>
+                                                            <div class="product_rating"><div class="product_rating_in" style="width: 40%;"></div></div>
+                                                            <div class="product_actions_review"><a href="">15 отзывов</a></div>
+                                                        </div>
+                                                        <div class="teaser"><p>Гарантия 12 месяцев. Срок службы 36 месяцев. В комплекте: фирменный переходник, наушники, дата-кабель, кубик-зарядка. Поможем обрезать SIM-карту !</p></div>
+                                                        <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>    
+                                                    </div>
+                                                    <div class="colum colum_2 left">
+                                                        <div class="delivery">Бесплатно, завтра<br />Самовывоз</div>
+                                                        <div class="time">Сегодня работает с 9:00 до 21:00</div>
+                                                    </div>
+                                                    <div class="colum colum_3 right">
+                                                        <strong>1700,00 p.</strong>
+                                                        <a href="#" class="in_cart">В корзину</a>
+                                                        <div>
+                                                            <a href="javascript:void(0);" class="in_contact">Контакты</a>  
+                                                            <div class="product_contacts">
+                                                                <ul>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 29 663-66-88</li>
+                                                                </ul>
+                                                            </div> 
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div> <!-- item  -->
+
+
+                                                <div class="item">
+                                                    <div class="colum colum_1 left">
+                                                        <div class="top">
+                                                            <h4>ActiveGroup</h4>
+                                                            <div class="product_rating"><div class="product_rating_in" style="width: 40%;"></div></div>
+                                                            <div class="product_actions_review"><a href="">15 отзывов</a></div>
+                                                        </div>
+                                                        <div class="teaser"><p>Гарантия 12 месяцев. Срок службы 36 месяцев. В комплекте: фирменный переходник, наушники, дата-кабель, кубик-зарядка. Поможем обрезать SIM-карту !</p></div>
+                                                        <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>    
+                                                    </div>
+                                                    <div class="colum colum_2 left">
+                                                        <div class="delivery">Бесплатно, завтра<br />Самовывоз</div>
+                                                        <div class="time">Сегодня работает с 9:00 до 21:00</div>
+                                                    </div>
+                                                    <div class="colum colum_3 right">
+                                                        <strong>1700,00 p.</strong>
+                                                        <a href="#" class="in_cart">В корзину</a>
+                                                        <div>
+                                                            <a href="javascript:void(0);" class="in_contact">Контакты</a>  
+                                                            <div class="product_contacts">
+                                                                <ul>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 33 630-55-66</li>
+                                                                    <li>+375 29 663-66-88</li>
+                                                                </ul>
+                                                            </div> 
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div> <!-- item  -->
+                                            </div> <!-- all_offers  -->
+                                        </div><!-- right col_75  -->
+                                    </div><!-- cols_wrapp  -->
+                                    <div class="page_product_bottom">
+                                        <div class="product_big_batton"><a href="#">22 предложения новых товаров</a></div>
+                                        <div class="product_actions">
+                                            <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                            <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                        </div>
+                                    </div>
+                                </div><!-- item_tab #tabs-2  -->
+                                <h3>Карта</h3>
+                                <div class="item_tab" id="tabs-3">
+                                </div><!-- item_tab #tabs-3  -->
+
+                                <h3>Отзывы <span>(45)</span>  <div class="product_rating product_rating_accardion"><div class="product_rating_in" style="width: 20%;"></div></div></h3>
+
+                                <div class="reviews_item_tab item_tab" id="tabs-4">
+                                    <div class="reviews_content">
+                                        <div class="reviews_cantent_question">
+                                            <div class="reviews_cantent_top_rev"><p>Что вы думаете об этом товаре?</p> <a href="">Написать отзыв</a>
+                                            </div>
+
+                                            <div class="reviews_cantent_sort">
+                                                <div class="tab_item_sort">
+                                                    <div class="catalog_sort">
+                                                        <p>Сортировать <span>по дате</span> <i class="fa fa-caret-down" aria-hidden="true"></i></p> 
+                                                        <div class="selector_sort">
+                                                            <ul>
+                                                                <li><p><span>1 месяц</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                                <li><p><span>2 месяца</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                                <li><p><span>1 год</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                                <li class="active"><p><span>2 года</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                                <li><p><span>4 года </span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                                <li><p><span>3 месяца</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="reviews_content_item">
+                                            <div class="reviews_content_item_top">
+                                                <div class="reviews_content_item_w">
+                                                    <img src="http://via.placeholder.com/50x30" alt="alt">
+                                                    <div class="reviews_content_item_block">
+                                                        <h3>Я получил даже больше ожидаемого</h3>
+                                                        <div class="reviews_content_item_rating">
+                                                            <div class="product_rating">
+                                                                <div class="product_rating_in" style="width: 20%;"></div>
+                                                            </div>
+                                                            <span>Отлично!</span>
+                                                        </div>
+                                                        <div class="reviews_content_date">
+                                                            <span class="reviews_content_famil">
+                                                                Алексей Иванов
+                                                            </span>
+                                                            <span class="reviews_content_when">
+                                                                15 февраля 2016
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="reviews_content_term">
+                                                    <p>Опыт использования: <span>менее месяца</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="reviews_content_middle">
+                                                <p>
+                                                    Был обладателем Iphone 4, 5c, Samsung A3 2016. После приобретения айфонов никаких проблем не было разве что бились экраны на раз два. А вот с последним , т.е с самсунгом были некоторые неполадки. Как то раз я решил перейти на Android, думая, что многофункциональность и возможности ОС раскроют передо мной новый мир в использовании телефонов. Некоторое время я был доволен телефоном. Пока я не столкнулся с проблемами о нехватки памяти . Постоянно приходилось чистить память , ставить приложения для всего этого дела. 
+                                                    А потом да и вовсе поймал вирус, после которого ни один антивирус не мог помочь, помогло полнейший сброс настроек до заводских. Жутко неудобная клавиатура, несравнимая с клавиатурой на Ios. Вообщем мое довольство аппаратом сменилось разочарованием , хоть это и была совершенно новая модель самсунга , но глючить начала буквально через 3 месяца пользования.
+                                                </p>
+                                            </div>
+                                            <div class="reviews_content_bottom">
+                                                <div class="reviews_content_bottom_item">
+                                                    <span class="reviews_content_dignity">Достоинства</span>
+                                                    <p>Приятные тактильные ощущения</p>
+                                                    <p>Скорость работы</p>
+                                                    <p>Неплохая камера</p>
+                                                </div>
+                                                <div class="reviews_content_bottom_item">
+                                                    <span class="reviews_content_limitations">Недостатки</span>
+                                                    <p>Слабая батарея</p>
+                                                    <p>Высокая цена, при себестоимости аппарата в 15 т.р.
+                                                    </p>
+                                                    <p>Отсутствие фм радио (это конечно вообще позорный фэйл)</p>
+                                                    <p>Отсутствие разъёма для наушников</p>
+                                                    <p>Не работает тач скрин в перчатках</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="reviews_content_item">
+                                            <div class="reviews_content_item_top">
+                                                <div class="reviews_content_item_w">
+                                                    <img src="http://via.placeholder.com/50x30" alt="alt">
+                                                    <div class="reviews_content_item_block">
+                                                        <h3>Я получил даже больше ожидаемого</h3>
+                                                        <div class="reviews_content_item_rating">
+                                                            <div class="product_rating">
+                                                                <div class="product_rating_in" style="width: 20%;"></div>
+                                                            </div>
+                                                            <span>Отлично!</span>
+                                                        </div>
+                                                        <div class="reviews_content_date">
+                                                            <span class="reviews_content_famil">
+                                                                Алексей Иванов
+                                                            </span>
+                                                            <span class="reviews_content_when">
+                                                                15 февраля 2016
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="reviews_content_term">
+                                                    <p>Опыт использования: <span>менее месяца</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="reviews_content_middle">
+                                                <p>
+                                                    Был обладателем Iphone 4, 5c, Samsung A3 2016. После приобретения айфонов никаких проблем не было разве что бились экраны на раз два. А вот с последним , т.е с самсунгом были некоторые неполадки. Как то раз я решил перейти на Android, думая, что многофункциональность и возможности ОС раскроют передо мной новый мир в использовании телефонов. Некоторое время я был доволен телефоном. Пока я не столкнулся с проблемами о нехватки памяти . Постоянно приходилось чистить память , ставить приложения для всего этого дела. 
+                                                    А потом да и вовсе поймал вирус, после которого ни один антивирус не мог помочь, помогло полнейший сброс настроек до заводских. Жутко неудобная клавиатура, несравнимая с клавиатурой на Ios. Вообщем мое довольство аппаратом сменилось разочарованием , хоть это и была совершенно новая модель самсунга , но глючить начала буквально через 3 месяца пользования.
+                                                </p>
+                                            </div>
+                                            <div class="reviews_content_bottom">
+                                                <div class="reviews_content_bottom_item">
+                                                    <span class="reviews_content_dignity">Достоинства</span>
+                                                    <p>Приятные тактильные ощущения</p>
+                                                    <p>Скорость работы</p>
+                                                    <p>Неплохая камера</p>
+                                                </div>
+                                                <div class="reviews_content_bottom_item">
+                                                    <span class="reviews_content_limitations">Недостатки</span>
+                                                    <p>Слабая батарея</p>
+                                                    <p>Высокая цена, при себестоимости аппарата в 15 т.р.
+                                                    </p>
+                                                    <p>Отсутствие фм радио (это конечно вообще позорный фэйл)</p>
+                                                    <p>Отсутствие разъёма для наушников</p>
+                                                    <p>Не работает тач скрин в перчатках</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="reviews_content_item">
+                                            <div class="reviews_content_item_top">
+                                                <div class="reviews_content_item_w">
+                                                    <img src="http://via.placeholder.com/50x30" alt="alt">
+                                                    <div class="reviews_content_item_block">
+                                                        <h3>Я получил даже больше ожидаемого</h3>
+                                                        <div class="reviews_content_item_rating">
+                                                            <div class="product_rating">
+                                                                <div class="product_rating_in" style="width: 20%;"></div>
+                                                            </div>
+                                                            <span>Отлично!</span>
+                                                        </div>
+                                                        <div class="reviews_content_date">
+                                                            <span class="reviews_content_famil">
+                                                                Алексей Иванов
+                                                            </span>
+                                                            <span class="reviews_content_when">
+                                                                15 февраля 2016
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="reviews_content_term">
+                                                    <p>Опыт использования: <span>менее месяца</span></p>
+                                                </div>
+                                            </div>
+                                            <div class="reviews_content_middle">
+                                                <p>
+                                                    Был обладателем Iphone 4, 5c, Samsung A3 2016. После приобретения айфонов никаких проблем не было разве что бились экраны на раз два. А вот с последним , т.е с самсунгом были некоторые неполадки. Как то раз я решил перейти на Android, думая, что многофункциональность и возможности ОС раскроют передо мной новый мир в использовании телефонов. Некоторое время я был доволен телефоном. Пока я не столкнулся с проблемами о нехватки памяти . Постоянно приходилось чистить память , ставить приложения для всего этого дела. 
+                                                    А потом да и вовсе поймал вирус, после которого ни один антивирус не мог помочь, помогло полнейший сброс настроек до заводских. Жутко неудобная клавиатура, несравнимая с клавиатурой на Ios. Вообщем мое довольство аппаратом сменилось разочарованием , хоть это и была совершенно новая модель самсунга , но глючить начала буквально через 3 месяца пользования.
+                                                </p>
+                                            </div>
+                                            <div class="reviews_content_bottom">
+                                                <div class="reviews_content_bottom_item">
+                                                    <span class="reviews_content_dignity">Достоинства</span>
+                                                    <p>Приятные тактильные ощущения</p>
+                                                    <p>Скорость работы</p>
+                                                    <p>Неплохая камера</p>
+                                                </div>
+                                                <div class="reviews_content_bottom_item">
+                                                    <span class="reviews_content_limitations">Недостатки</span>
+                                                    <p>Слабая батарея</p>
+                                                    <p>Высокая цена, при себестоимости аппарата в 15 т.р.
+                                                    </p>
+                                                    <p>Отсутствие фм радио (это конечно вообще позорный фэйл)</p>
+                                                    <p>Отсутствие разъёма для наушников</p>
+                                                    <p>Не работает тач скрин в перчатках</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="reviews_cantent_question" style="margin-top: 25px; border-bottom: none">
+                                            <div class="reviews_cantent_top_rev"><p>Что вы думаете об этом товаре?</p> <a href="">Написать отзыв</a>
+                                            </div>
+                                        </div>
+                                        <div class="more_products">
+                                            <div class="right">
+                                                <div class="catalog_paginator">
+                                                    <p><span>1</span> <i class="fa fa-caret-down" aria-hidden="true"></i></p> 
+                                                    <div class="selector_paginator">
+                                                        <ul>
+                                                            <li><p><span>1</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                            <li><p><span>2</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                            <li><p><span>3</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                            <li class="active"><p><span>4</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                            <li><p><span>5</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                            <li><p><span>6</span> <i class="fa fa-check" aria-hidden="true"></i></p></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="left">
+                                                <a href="#">Следующие 30 товаров</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="reviews_sidebar_wrapp">
+                                        <div class="reviews_content_sidebar">
+                                            <div class="reviews_content_sidebar_top">
+                                                <h3>Общий рейтинг</h3>
+                                                <div class="product_rating">
+                                                    <div class="product_rating_in" style="width: 20%;"></div>
+                                                </div>
+                                                <span>на основе 45 отзывов</span>
+                                            </div>
+                                            <div class="reviews_content_sidebar_middle">
+                                                <div class="shop_sidebar_item">
+                                                    <div class="sidebar_band">
+                                                        <div class="sidebar_band_filler filler_1"></div>
+                                                    </div>
+
+                                                    <div class="sidebar_item_rating">
+                                                        <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                        <span>47%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="sidebar_item">
+                                                    <div class="sidebar_band">
+                                                        <div class="sidebar_band_filler filler_2"></div>
+                                                    </div>
+
+                                                    <div class="sidebar_item_rating">
+                                                        <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                        <span>9%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="sidebar_item">
+                                                    <div class="sidebar_band">
+                                                        <div class="sidebar_band_filler filler_3"></div>
+                                                    </div>
+
+                                                    <div class="sidebar_item_rating">
+                                                        <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                        <span>17%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="sidebar_item">
+                                                    <div class="sidebar_band">
+                                                        <div class="sidebar_band_filler filler_4"></div>
+                                                    </div>
+
+                                                    <div class="sidebar_item_rating">
+                                                        <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                        <span>12%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="sidebar_item">
+                                                    <div class="sidebar_band">
+                                                        <div class="sidebar_band_filler filler_5"></div>
+                                                    </div>
+
+                                                    <div class="sidebar_item_rating">
+                                                        <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                        <span>16%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="reviews_content_sidebar_bottom">
+                                                <span>73%</span>
+                                                <p>Пользователей порекомендовали бы этот <br> продукт своим друзьям</p>
+                                            </div>
+                                        </div><!--  reviews_content_sidebar -->
+                                    </div>
+
+
+
+
+
+
+
+                                </div><!-- item_tab #tabs-4  -->
+                                <h3>Обзоры <span>(17)</span></h3>
+                                <div class="item_tab" id="tabs-5">
+                                </div><!-- item_tab #tabs-5  -->
+                                <h3>Обсуждение <span>(135)</span></h3>
+                                <div class="item_tab" id="tabs-6">
+                                </div><!-- item_tab #tabs-6  -->
+                                <h3>Б/У объявление <span>(2)</span></h3>
+                                <div class="item_tab" id="tabs-7">
+                                </div><!-- item_tab #tabs-7  -->
+                            </div>
+                        </div><!-- tabs -->
+                    </div><!-- product_tabs -->
+
+
+                    <div class="content">
+
+                    </div>	<!-- content -->
+                </div><!-- center -->
+                <!---------------------------------------------------------------------->
+
+            </div><!-- #conteiner -->
+        </div><!-- #wrapper -->
+        <div id="footer">
+            <div class="center">
+                <div class="left">
+                    <div class="col-1">
+                        <a href="/">Купить</a>
+                        <p>© 2017  Kupit.by</p>
+                    </div>
+                    <div class="col-2">
+                        <div class="footer_nav">
+                            <ul>
+                                <li><a href="#">О компании</a></li>
+                                <li><a href="#">Вакансии</a></li>
+                                <li><a href="#">Контакты</a></li>                                              
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="footer_nav">
+                            <ul>
+                                <li><a href="#">Реклама</a></li>
+                                <li><a href="#">Размещение в каталоге </a></li>
+                                <li><a href="#">Правила</a></li>
+                                <li><a href="#">Публичный договор  </a></li>
+                                <li><a href="#">Поддержка пользователей</a></li>                                                 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="title"><p>Подпишитесь на нас</p></div>
+                    <div class="text">
+                        <p>Узнавайте о выгодных предложениях и получайте личные рекомендации</p>
+                    </div>
+                    <div class="subscribe_block">
+                        <form action="/">
+                            <div class="form-item">                                                         
+                                <input type="text" class=" " name="search" value="" placeholder="Электронная почта" />                                
+                            </div>
+                            <div class="form-ection">                                          
+                                <input type="submit" class="submit" value="Подписаться" />
+                            </div>
+                        </form>
+                        <ul class="social_subscribe">
+                            <li><a href="" class="vk" target="_blank" rel="nofollow"><span></span></a></li>
+                            <li><a href="" class="fb" target="_blank" rel="nofollow"><span></span></a></li>
+                            <li><a href="" class="gplus" target="_blank" rel="nofollow"><span></span></a></li>
+                        </ul>
+                    </div>
+                </div>	 
+            </div><!-- center -->
+        </div><!-- #footer -->  
+        <div class="bottom_baner">
+            <div class="img"><img src="files/upload/bottom_baner.png" alt="" /></div>
+            <div class="center">
+                <div class="text">
+                    <div class="left">
+                        <p class="t1">Электронные книги</p>
+                        <p class="t2">Amazon Kindle</p>
+                        <p class="t3">Второе поколение уникальных электронных книг с подсветкой, которые в сети именуют Kindle Paperwhite 2, вышло это осенью.</p>
+                    </div>
+                    <div class="right">
+                        <p class="price">от 200р</p>
+                        <a href="" class="view">Посмотреть в каталоге</a>
+                    </div>
+                </div>
+            </div>    
+        </div> 
+        <!--==================== madall =========================-->
+        <div class="modall" id="login" >
+            <div class="modall_fon"></div>
+            <div class="modall_block">
+                <div class="inside">
+                    <div class="logo">
+                        <a href=""><span>КУПИТЬ</span></a>
+                    </div>
+                    <div class="modal_content modal_content_enter">
+                        <div class="left coll_50">
+                            <div class="title"><p>Войти через социальные сети</p></div>
+                            <div class="cotcials_enter">
+                                <a href="" class="login_vk">Войти через Вконтакте</a>
+                                <a href="" class="login_fb">Войти через Facebook</a>
+                            </div>
+                            <p class="descript">Авторизация через социальные сети обсалютно безопасна</p>
+                        </div>
+                        <div class="right coll_50">
+                            <div class="login_tabs ui_selector" id="login_tabs">
+                                <ul>
+                                    <li><a href="#signe_in_tab">ВХОД</a></li>
+                                    <li><a href="#register_tab">РЕГИСТРАЦИЯ</a></li>
+                                </ul>
+                                <div class="login_tab" id="signe_in_tab">
+                                    <form>
+                                        <div class="form-item form-item-email">
+                                            <input type="text" value="" placeholder="Электронный адрес" />
+                                        </div>
+                                        <div class="form-item form-item-pass">
+                                            <input type="password" value="" placeholder="Пароль" />
+                                            <input type="text" value="" placeholder="Пароль" />
+                                            <div class="openfield"></div>
+                                        </div>
+                                        <div class="form-item form-item-actions">
+                                            <a href="#" class="forgot_pass">Забыли пароль?</a>
+                                            <div class="remember_me">
+                                                <label>
+                                                    <input type="checkbox" />
+                                                    <span>Запомнить меня</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-ection">
+                                            <input type="submit" value="Войти" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="login_tab" id="register_tab">
+                                    <form>
+                                        <div class="form-item form-item-email">
+                                            <input type="text" value="" placeholder="Электронный адрес" />
+                                        </div>
+                                        <div class="form-item form-item-pass">
+                                            <input type="password" value="" placeholder="Пароль" />
+                                            <input type="text" value="" placeholder="Пароль" />
+                                            <div class="openfield"></div>
+                                        </div>
+                                        <div class="form-item form-item-pass">
+                                            <input type="password" value="" placeholder="Пароль еще раз" />
+                                            <input type="text" value="" placeholder="Пароль" />
+                                            <div class="openfield"></div>
+                                        </div>
+                                        <div class="form-ection">
+                                            <p>Регистрируясь, вы соглашаетесь с <a href="#">правилами</a>.</p>
+                                            <input type="submit" value="Войти" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+
+                    <span class="modallclose"></span>                                
+                </div>
+
+            </div>
+        </div> <!-- . end-->  
+
+
+
+
+        <!--==================== madall =========================-->
+        <div class="modall" id="choices_product">
+            <div class="modall_fon"></div>
+            <div class="modall_block">
+                <div class="inside">
+                    <div class="choices_product_content">
+                        <h2>Еще 13 вариантов Apple iPhone 7</h2>
+                        <div class="choices_product_list">
+                            <div class="product_item">
+                                <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя"></a></div>
+                                <div class="product_right right">
+                                    <div class="product-price"><strong>от 1700р.</strong></div>
+                                    <div class="product-offers"><a href="#">15 предложений</a></div>
+                                    <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                </div>
+                                <div class="product_teaser">
+                                    <div class="modal_cat_item_title">
+                                        <h2>Apple iPhone 7 32GB Black</h2>
+                                        <div class="product_actions_rating">
+                                            <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                        </div>
+                                    </div>
+                                    <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>  
+                                    <div class="product_actions">
+                                        <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                        <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                    </div>                                      
+                                </div>
+                            </div>
+
+                            <div class="product_item">
+                                <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя"></a></div>
+                                <div class="product_right right">
+                                    <div class="product-price"><strong>от 1700р.</strong></div>
+                                    <div class="product-offers"><a href="#">15 предложений</a></div>
+                                    <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                </div>
+                                <div class="product_teaser">
+                                    <div class="modal_cat_item_title">
+                                        <h2>Apple iPhone 7 32GB Black</h2>
+                                        <div class="product_actions_rating">
+                                            <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                        </div>
+                                    </div>
+                                    <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>  
+                                    <div class="product_actions">
+                                        <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                        <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                    </div>                                      
+                                </div>
+                            </div>
+
+
+                            <div class="product_item">
+                                <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя"></a></div>
+                                <div class="product_right right">
+                                    <div class="product-price"><strong>от 1700р.</strong></div>
+                                    <div class="product-offers"><a href="#">15 предложений</a></div>
+                                    <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                </div>
+                                <div class="product_teaser">
+                                    <div class="modal_cat_item_title">
+                                        <h2>Apple iPhone 7 32GB Black</h2>
+                                        <div class="product_actions_rating">
+                                            <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                        </div>
+                                    </div>
+                                    <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>  
+                                    <div class="product_actions">
+                                        <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                        <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                    </div>                                      
+                                </div>
+                            </div>
+
+
+                            <div class="product_item">
+                                <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя"></a></div>
+                                <div class="product_right right">
+                                    <div class="product-price"><strong>от 1700р.</strong></div>
+                                    <div class="product-offers"><a href="#">15 предложений</a></div>
+                                    <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                </div>
+                                <div class="product_teaser">
+                                    <div class="modal_cat_item_title">
+                                        <h2>Apple iPhone 7 32GB Black</h2>
+                                        <div class="product_actions_rating">
+                                            <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                        </div>
+                                    </div>
+                                    <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>  
+                                    <div class="product_actions">
+                                        <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                        <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                    </div>                                      
+                                </div>
+                            </div>
+
+
+                            <div class="product_item">
+                                <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя"></a></div>
+                                <div class="product_right right">
+                                    <div class="product-price"><strong>от 1700р.</strong></div>
+                                    <div class="product-offers"><a href="#">15 предложений</a></div>
+                                    <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                </div>
+                                <div class="product_teaser">
+                                    <div class="modal_cat_item_title">
+                                        <h2>Apple iPhone 7 32GB Black</h2>
+                                        <div class="product_actions_rating">
+                                            <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                        </div>
+                                    </div>
+                                    <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>  
+                                    <div class="product_actions">
+                                        <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                        <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                    </div>                                      
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <span class="modallclose"></span>                                
+                </div>
+
+            </div>
+        </div> <!-- . end-->  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--        =====================modal_search==================    -->
+        <div class="modall" id="modal_search" >
+            <div class="modall_fon"></div>
+            <div class="modall_block">
+                <div class="inside">
+
+                    <div class="modal_search">
+                        <div class="search_block">
+                            <span class="modallclose_mobile">Отменить</span>
+                            <form action="/">
+                                <div class="form-item">                                       
+                                    <input type="text" id="modalsearch" name="search" value="iphone" placeholder="" /> 
+                                    <div class="clean_form">
+                                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                    </div>          
+                                </div>
+                                <div class="form-ection">                                    
+                                    <input type="submit" class="submit" value="Поиск" />
+                                </div>
+                            </form>
+                        </div>  
+                    </div>
+                    <div class="modal_content modal_content_search">                         
+                        <div class="search_tabs ui_selector" id="search_tabs">
+                            <ul>
+                                <li><a href="#catalog_tab">Каталог</a></li>
+                                <li><a href="#flea_market_tab">Барахолка</a></li>
+                            </ul>
+                            <div class="search_tab" id="catalog_tab">
+                                <div class="search_tabs_data">
+                                    Мобильные телефоны / <a href="">Apple iPhone <span>(138)</span></a> 
+                                </div>
+                                <div class="search_tabs_data">
+                                    Чехлы для телефонов  / <a href="">Чехлы для iPhone <span> (281)</span></a>
+                                </div> 
+                                <div class="product_list">
+                                    <div class="product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>
+                                            <div class="product-offers"><a href="#">15 предложений</a></div>
+                                            <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                        </div>
+                                        <div class="product_teaser">
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>
+                                                <div class="product_actions_rating">
+                                                    <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                </div>
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>  
+                                            <div class="product_actions">
+                                                <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                                <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                            </div>                                      
+                                        </div>
+                                    </div> <!-- product_item -->
+
+                                    <div class="product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>
+                                            <div class="product-offers"><a href="#">15 предложений</a></div>
+                                            <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                        </div>
+                                        <div class="product_teaser">
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>
+                                                <div class="product_actions_rating">
+                                                    <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                </div>
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>                                        
+                                            <div class="product_actions">
+                                                <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                                <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                            </div> 
+                                        </div>
+                                    </div> <!-- product_item -->
+
+                                    <div class="product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>
+                                            <div class="product-offers"><a href="#">15 предложений</a></div>
+                                            <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                        </div>
+                                        <div class="product_teaser">
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>
+                                                <div class="product_actions_rating">
+                                                    <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                </div>
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>
+                                            <div class="product_actions">
+                                                <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                                <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                            </div>                                         
+                                        </div>
+                                    </div> <!-- product_item -->
+
+                                    <div class="product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>
+                                            <div class="product-offers"><a href="#">15 предложений</a></div>
+                                            <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                        </div>
+                                        <div class="product_teaser">
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>
+                                                <div class="product_actions_rating">
+                                                    <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                </div>
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>                                        
+                                            <div class="product_actions">
+                                                <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                                <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                            </div> 
+                                        </div>
+                                    </div> <!-- product_item -->
+
+                                    <div class="product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>
+                                            <div class="product-offers"><a href="#">15 предложений</a></div>
+                                            <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                        </div>
+                                        <div class="product_teaser">
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>
+                                                <div class="product_actions_rating">
+                                                    <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                </div>
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>                                        
+                                            <div class="product_actions">
+                                                <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                                <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                            </div> 
+                                        </div>
+                                    </div> <!-- product_item -->
+
+                                    <div class="product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>
+                                            <div class="product-offers"><a href="#">15 предложений</a></div>
+                                            <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                        </div>
+                                        <div class="product_teaser">
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>
+                                                <div class="product_actions_rating">
+                                                    <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                </div>
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>  
+                                            <div class="product_actions">
+                                                <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                                <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                            </div>                                       
+                                        </div>
+                                    </div> <!-- product_item -->
+
+                                    <div class="product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>
+                                            <div class="product-offers"><a href="#">15 предложений</a></div>
+                                            <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                        </div>
+                                        <div class="product_teaser">
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>
+                                                <div class="product_actions_rating">
+                                                    <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                </div>
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>                                        
+                                            <div class="product_actions">
+                                                <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                                <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                            </div> 
+                                        </div>
+                                    </div> <!-- product_item -->
+
+                                    <div class="product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>
+                                            <div class="product-offers"><a href="#">15 предложений</a></div>
+                                            <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                        </div>
+                                        <div class="product_teaser">
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>
+                                                <div class="product_actions_rating">
+                                                    <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                </div>
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>  
+                                            <div class="product_actions">
+                                                <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                                <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                            </div>                                       
+                                        </div>
+                                    </div> <!-- product_item -->
+
+                                    <div class="product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>
+                                            <div class="product-offers"><a href="#">15 предложений</a></div>
+                                            <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                        </div>
+                                        <div class="product_teaser">
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>
+                                                <div class="product_actions_rating">
+                                                    <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                </div>
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>
+                                            <div class="product_actions">
+                                                <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                                <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                            </div>                                         
+                                        </div>
+                                    </div> <!-- product_item -->
+
+                                    <div class="product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/product_catalog1.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>
+                                            <div class="product-offers"><a href="#">15 предложений</a></div>
+                                            <div class="product-stores-data"><p>2 б/у объявления от 1600р.</p></div>
+                                        </div>
+                                        <div class="product_teaser">
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>
+                                                <div class="product_actions_rating">
+                                                    <div class="product_rating"><div class="product_rating_in" style="width: 20%;"></div></div>
+                                                </div>
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>                                        
+                                            <div class="product_actions">
+                                                <div class="product_actions_like"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i> Отложить</a></div>
+                                                <div class="product_actions_compare"><a href="">Сравнить</a></div>
+                                            </div> 
+                                        </div>
+                                    </div> <!-- product_item -->                                                                                             
+                                </div><!-- product_list -->
+                            </div><!-- catalog_tab . end-->
+                            <div class="search_tab" id="flea_market_tab">
+                             <div class="search_tabs_data">
+                                    Мобильные телефоны / <a href="">Apple iPhone <span>(138)</span></a> 
+                                </div>
+                                <div class="search_tabs_data">
+                                    Чехлы для телефонов  / <a href="">Чехлы для iPhone <span> (281)</span></a>
+                                </div> 
+                                <div class="product_list">
+                                    <div class="product_item flea_market_product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/img_flea_market.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>   
+                                            <div class="product-price_more"><p>торг</p></div>                                     
+                                        </div>
+                                        <div class="product_teaser">                          
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>              
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>                                
+                                            <div class="product_actions">                                            
+                                                <div class="product_date_used"><p>9 март, 16:58</p></div>
+                                                <div class="product_city_used"><p> Минск</p></div>
+                                                <div class="product_useded"><p>Состояние: б/у</p></div>
+                                            </div> 
+                                        </div>
+                                    </div> <!-- product_item --> 
+                                    <div class="product_item flea_market_product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/img_flea_market.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>   
+                                            <div class="product-price_more"><p>торг</p></div>                                     
+                                        </div>
+                                        <div class="product_teaser">                          
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>              
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>                                
+                                            <div class="product_actions">                                            
+                                                <div class="product_date_used"><p>9 март, 16:58</p></div>
+                                                <div class="product_city_used"><p> Минск</p></div>
+                                                <div class="product_useded"><p>Состояние: б/у</p></div>
+                                            </div> 
+                                        </div>
+                                    </div> <!-- product_item -->  
+                                    <div class="product_item flea_market_product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/img_flea_market.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>   
+                                            <div class="product-price_more"><p>торг</p></div>                                     
+                                        </div>
+                                        <div class="product_teaser">                          
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>              
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>                                
+                                            <div class="product_actions">                                            
+                                                <div class="product_date_used"><p>9 март, 16:58</p></div>
+                                                <div class="product_city_used"><p> Минск</p></div>
+                                                <div class="product_useded"><p>Состояние: б/у</p></div>
+                                            </div> 
+                                        </div>
+                                    </div> <!-- product_item --> 
+                                    <div class="product_item flea_market_product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/img_flea_market.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>   
+                                            <div class="product-price_more"><p>торг</p></div>                                     
+                                        </div>
+                                        <div class="product_teaser">                        
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>          
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>                                
+                                            <div class="product_actions">                                            
+                                                <div class="product_date_used"><p>9 март, 16:58</p></div>
+                                                <div class="product_city_used"><p> Минск</p></div>
+                                                <div class="product_useded"><p>Состояние: б/у</p></div>
+                                            </div> 
+                                        </div>
+                                    </div> <!-- product_item -->
+                                    <div class="product_item flea_market_product_item">
+                                        <div class="product_image left"><a href="#"><img src="files/upload/img_flea_market.png" alt="имя" title="имя" /></a></div>
+                                        <div class="product_right right">
+                                            <div class="product-price"><strong>от 1700р.</strong></div>   
+                                            <div class="product-price_more"><p>торг</p></div>                                     
+                                        </div>
+                                        <div class="product_teaser">                          
+                                            <div class="modal_cat_item_title">
+                                                <h2>Apple iPhone 7 32GB Black</h2>              
+                                            </div>
+                                            <p>Apple iOS, экран 4.7" IPS (750x1334), ОЗУ 2 ГБ, флэш-память 32 ГБ, камера 12 Мп, аккумулятор 1960 мАч, цвет черный</p>                                
+                                            <div class="product_actions">                                            
+                                                <div class="product_date_used"><p>9 март, 16:58</p></div>
+                                                <div class="product_city_used"><p> Минск</p></div>
+                                                <div class="product_useded"><p>Состояние: б/у</p></div>
+                                            </div> 
+                                        </div>
+                                    </div> <!-- product_item -->                                                                                          
+                                </div><!-- product_list -->
+                            </div><!--flea_market_tab . end-->
+                        </div>  <!-- search_tabs . end-->  
+
+                    </div><!--modal_content_search . end-->
+
+                    <span class="modallclose"></span>                                
+
+                </div><!--inside . end-->
+
+            </div><!-- modall_block . end-->
+        </div> <!-- . end-->     
+        <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
+    </body>
+</html>

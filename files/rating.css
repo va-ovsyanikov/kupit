@@ -1,0 +1,23 @@
+.star{
+    background-image: url(../files/images/product_rating.png);
+    display:block;
+    width: 33px;
+    height: 30px;
+    line-height:16px;
+    float:left;
+    cursor: pointer;
+    margin-right: 7px;
+    zoom:1;
+}
+
+.fullStar{
+background-image: url(../files/images/product_rating_in.png);
+}
+
+.stars{
+    overflow: hidden;
+}
+
+.tmp_fs{
+    background-image: url(../files/images/product_rating_in.png);
+}
